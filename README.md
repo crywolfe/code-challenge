@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/crywolfe/yodle-challenge.svg?branch=master)](https://travis-ci.org/crywolfe/yodle-challenge)
 
 yodle-challenge
 ===============
