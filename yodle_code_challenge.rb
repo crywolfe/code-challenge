@@ -110,7 +110,6 @@ class Pyramid
     @orig_tree = orig_tree
   end
 
-  private
   def create_2d_array
     @tree = @orig_tree.split(" \n")
 
@@ -128,7 +127,6 @@ class Pyramid
     end
   end
 
-  public
   # traverse down the tree following the largest child
   def traverse
     # set up traverse

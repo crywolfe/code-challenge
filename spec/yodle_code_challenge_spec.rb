@@ -2,11 +2,11 @@ require "spec_helper"
 require_relative "../yodle_code_challenge"
 
 describe Pyramid do
-  let(:triangle) { "5 
+  let(:tree) { "5 
     10 2 
     40 1 4 
     1 4 10 20 " }
-  let (:pyramid) { Pyramid.new(triangle) }
+  let (:pyramid) { Pyramid.new(tree) }
 
   describe "#create_2d_array" do
     it "should create a 2d array from a string that mimics a pyramid" do
@@ -26,13 +26,13 @@ describe Pyramid do
 
       pyramid.create_2d_array
 
-      triangle_array_int = 
+      tree_int = 
         [[5], 
         [10, 2],
         [40, 1, 4],
         [1, 4, 10, 20]]
 
-      expect(pyramid.convert_to_ints).to eq(triangle_array_int)
+      expect(pyramid.convert_to_ints).to eq(tree_int)
     end
   end
 
