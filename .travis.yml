@@ -6,7 +6,7 @@ before_script:
   - "export DISPLAY=:99.0"
 
 script:
-  # - gem install rspec
+  - gem install rspec
   - pwd
   - ls
   - rspec
