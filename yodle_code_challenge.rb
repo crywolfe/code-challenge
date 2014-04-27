@@ -149,6 +149,7 @@ class Pyramid
 
     # iterate through the array
     # need to start with 1 since an initial node was previously defined.
+    
     for vert_pos in 1...@tree.length
       largest_child ||= initial_largest_child
       @sum += largest_child
