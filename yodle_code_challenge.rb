@@ -121,9 +121,9 @@ class Pyramid
 
   # convert the 2d array of strings into 2d array of integers
   def convert_to_ints
-    @tree.each_index do |i|
-      @tree[i].each_index do |j|
-        @tree[i][j] = @tree[i][j].to_i
+    @tree.each_index do |vert_pos|
+      @tree[vert_pos].each_index do |horiz_pos|
+        @tree[vert_pos][horiz_pos] = @tree[vert_pos][horiz_pos].to_i
       end
     end
   end
@@ -136,7 +136,7 @@ class Pyramid
     convert_to_ints
 
     # set initial values
-    i = 0
+    vert_pos = 0
     @sum = @tree[0][0]
     
     # set initial parent node and children nodes
@@ -149,21 +149,20 @@ class Pyramid
 
     # iterate through the array
     # need to start with 1 since an initial node was previously defined.
-    for i in 1...@tree.length
+    for vert_pos in 1...@tree.length
       largest_child ||= initial_largest_child
       @sum += largest_child
 
-      for j in 0...@tree[i].length
-
-        if i < @tree.length-1
-          child_1 = @tree[i+1][largest_child[i][j]]
-          child_2 = @tree[i+1][largest_child[i][j]+1]
+      @tree[vert_pos].length.times do |horiz_pos|
+        if vert_pos < @tree.length-1
+          child_1 = @tree[vert_pos+1][largest_child[vert_pos][horiz_pos]]
+          child_2 = @tree[vert_pos+1][largest_child[vert_pos][horiz_pos]+1]
         end
 
         largest_child = [child_1, child_2].max
 
-        if i < @tree.length-1
-          parent = @tree[i+1][@tree[i+1].index(largest_child)]
+        if vert_pos < @tree.length-1
+          parent = @tree[vert_pos+1][@tree[vert_pos+1].index(largest_child)]
         end 
       end
     end
