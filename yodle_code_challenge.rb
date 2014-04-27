@@ -110,55 +110,60 @@ class Pyramid
     @orig_tree = orig_tree
   end
 
+  private
   def create_2d_array
-    @triangle_2d = @orig_tree.split(" \n")
+    @tree = @orig_tree.split(" \n")
 
-    @triangle_2d.map! do |num|
-      temp_triangle = @triangle_2d[@triangle_2d.index(num)].split(" ")
+    @tree.map! do |num|
+      @tree[@tree.index(num)].split(" ")
     end
   end
 
-  # convert the 2d array of strings into 2d array of ints
+  # convert the 2d array of strings into 2d array of integers
   def convert_to_ints
-    @triangle_2d.each_index do |i|
-      @triangle_2d[i].each_index do |j|
-        @triangle_2d[i][j] = @triangle_2d[i][j].to_i
+    @tree.each_index do |i|
+      @tree[i].each_index do |j|
+        @tree[i][j] = @tree[i][j].to_i
       end
     end
   end
 
+  public
   # traverse down the tree following the largest child
   def traverse
+    # set up traverse
+    create_2d_array
+    convert_to_ints
+
     # set initial values
     i = 0
-    @sum = @triangle_2d[0][0]
+    @sum = @tree[0][0]
     
     # set initial parent node and children nodes
-    initial_parent = @triangle_2d[0][0]
-    initial_child_1 = @triangle_2d[1][0]
-    initial_child_2 = @triangle_2d[1][1]
+    initial_parent = @tree[0][0]
+    initial_child_1 = @tree[1][0]
+    initial_child_2 = @tree[1][1]
 
     # set initial sorted child node and initial largest child
-    sorted_child = [initial_child_1, initial_child_2].sort
-    initial_largest_child = sorted_child[1]
+    initial_largest_child = [initial_child_1, initial_child_2].max
 
     # iterate through the array
     # need to start with 1 since an initial node was previously defined.
-    for i in 1...@triangle_2d.length
+    for i in 1...@tree.length
       largest_child ||= initial_largest_child
       @sum += largest_child
 
-      for j in 0...@triangle_2d[i].length
+      for j in 0...@tree[i].length
 
-        if i < @triangle_2d.length-1
-          child_1 = @triangle_2d[i+1][largest_child[i][j]]
-          child_2 = @triangle_2d[i+1][largest_child[i][j]+1]
+        if i < @tree.length-1
+          child_1 = @tree[i+1][largest_child[i][j]]
+          child_2 = @tree[i+1][largest_child[i][j]+1]
         end
 
-        sorted_child = [child_1, child_2].sort
-        largest_child = sorted_child[1]
-        if i < @triangle_2d.length-1
-          parent = @triangle_2d[i+1][@triangle_2d[i+1].index(largest_child)]
+        largest_child = [child_1, child_2].max
+
+        if i < @tree.length-1
+          parent = @tree[i+1][@tree[i+1].index(largest_child)]
         end 
       end
     end
@@ -166,8 +171,6 @@ class Pyramid
 end
 
 pyramid = Pyramid.new(orig_tree)
-pyramid.create_2d_array
-pyramid.convert_to_ints
 pyramid.traverse
 
 puts "-----"
