@@ -8,7 +8,6 @@ describe Pyramid do
     1 4 10 20 " }
     let (:pyramid) { Pyramid.new(triangle) }
 
-
   describe "#create_2d_array" do
     it "should create a 2d array from a string that mimics a pyramid" do
       
@@ -17,8 +16,6 @@ describe Pyramid do
       ["10", "2"],
       ["40", "1", "4"],
       ["1", "4", "10", "20"]]
-
-      # pyramid = Pyramid.new
 
       expect(pyramid.create_2d_array).to eq(triangle_array)
     end
