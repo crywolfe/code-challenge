@@ -2,16 +2,16 @@ require "spec_helper"
 require_relative "../yodle_code_challenge"
 
 describe Pyramid do
+  let(:triangle) { "5 
+    10 2 
+    40 1 4 
+    1 4 10 20 " }
+    let (:pyramid) { Pyramid.new(triangle) }
+
+
   describe "#create_2d_array" do
     it "should create a 2d array from a string that mimics a pyramid" do
       
-      triangle = 
-        "5 
-        10 2 
-        40 1 4 
-        1 4 10 20 "
-      pyramid = Pyramid.new(triangle)
-
       triangle_array = [
       ["5"], 
       ["10", "2"],
@@ -26,14 +26,7 @@ describe Pyramid do
 
   describe "#convert_to_ints" do
     it "should convert all number strings in the array to integers" do
-      
-      triangle = 
-        "5 
-        10 2 
-        40 1 4 
-        1 4 10 20 "
 
-      pyramid = Pyramid.new(triangle)
       pyramid.create_2d_array
 
       triangle_array_int = 
@@ -49,12 +42,7 @@ describe Pyramid do
 
   describe "#traverse" do
     it "should traverse down the array looking for the largest direct child of the parent node and return the sum" do
-      triangle = 
-        "5 
-        10 2 
-        40 1 4 
-        1 4 10 20 "
-      pyramid = Pyramid.new(triangle)
+
       pyramid.create_2d_array
       pyramid.convert_to_ints
       pyramid.traverse
