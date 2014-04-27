@@ -1,6 +1,6 @@
-require "rspec"
+require 'rspec'
 
-triangle_string = 
+orig_tree = 
 "9235 
 9096 637 
 973 3269 7039 
@@ -106,12 +106,12 @@ triangle_string =
 class Pyramid
   attr_reader :sum
 
-  def initialize(triangle_string)
-    @triangle_string = triangle_string
+  def initialize(orig_tree)
+    @orig_tree = orig_tree
   end
 
   def create_2d_array
-    @triangle_2d = @triangle_string.split(" \n")
+    @triangle_2d = @orig_tree.split(" \n")
 
     @triangle_2d.map! do |num|
       temp_triangle = @triangle_2d[@triangle_2d.index(num)].split(" ")
@@ -165,7 +165,7 @@ class Pyramid
   end
 end
 
-pyramid = Pyramid.new(triangle_string)
+pyramid = Pyramid.new(orig_tree)
 pyramid.create_2d_array
 pyramid.convert_to_ints
 pyramid.traverse
