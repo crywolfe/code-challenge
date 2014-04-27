@@ -1,4 +1,3 @@
-require "pry"
 require "rspec"
 
 triangle_string = 
