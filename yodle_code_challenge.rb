@@ -1,7 +1,7 @@
 require "pry"
 require "rspec"
 
-@triangle_string = 
+triangle_string = 
 "9235 
 9096 637 
 973 3269 7039 
@@ -104,69 +104,75 @@ require "rspec"
 7189 950 1469 9338 8838 9050 1823 5152 6087 1836 5085 1748 5247 4392 5984 1814 5001 508 3920 6999 8755 6215 6933 9416 8152 4043 1960 5758 5532 1793 1266 222 4559 7363 7151 2297 3775 5533 8324 6810 7382 3525 1719 6577 1241 9595 2938 2526 9755 3000 6988 2178 1071 4222 8549 5062 3873 1521 7590 2759 8939 3618 1853 2096 2567 8555 2446 2247 7012 5668 2584 454 5152 985 2393 6450 2738 6344 4589 2724 1790 9066 6861 6290 2975 2100 6816 7779 3126 4220 4457 5348 6453 6087 5349 4148 4463 747 4854 6924 "
 
 #create a pyramid style 2 dimensional array
-def create_2d_array
-  @triangle_2d = @triangle_string.split(" \n")
+class Pyramid
+  attr_reader :sum
 
-  @triangle_2d.map! do |num|
-    temp_triangle = @triangle_2d[@triangle_2d.index(num)].split(" ")
+  def initialize(triangle_string)
+    @triangle_string = triangle_string
   end
-end
 
-  
-#convert the 2d array of strings into 2d array of ints
-def convert_to_ints
-  @triangle_2d.each_index do |i|
-    @triangle_2d[i].each_index do |j|
-      @triangle_2d[i][j] = @triangle_2d[i][j].to_i
+  def create_2d_array
+    @triangle_2d = @triangle_string.split(" \n")
+
+    @triangle_2d.map! do |num|
+      temp_triangle = @triangle_2d[@triangle_2d.index(num)].split(" ")
     end
   end
-end
 
-#traverse down the tree following the largest child
-def traverse
-  #set initial values
-  i = 0
-  @sum = @triangle_2d[0][0]
-  
-  #set initial parent node and children nodes
-  initial_parent = @triangle_2d[0][0]
-  initial_child_1 = @triangle_2d[i+1][0]
-  initial_child_2 = @triangle_2d[i+1][1]
-
-  #set initial sorted child node and initial largest child
-  sorted_child = [initial_child_1, initial_child_2].sort
-  initial_largest_child = sorted_child[1]
-
-  #iterate through the array
-  #need to start with 1 since an initial node was previously defined.
-  for i in 1...@triangle_2d.length
-    largest_child ||= initial_largest_child
-    @sum += largest_child
-
-    for j in 0...@triangle_2d[i].length
-
-      if i < @triangle_2d.length-1
-        child_1 = @triangle_2d[i+1][largest_child[i][j]]
-        child_2 = @triangle_2d[i+1][largest_child[i][j]+1]
+  #convert the 2d array of strings into 2d array of ints
+  def convert_to_ints
+    @triangle_2d.each_index do |i|
+      @triangle_2d[i].each_index do |j|
+        @triangle_2d[i][j] = @triangle_2d[i][j].to_i
       end
+    end
+  end
 
-      sorted_child = [child_1, child_2].sort
-      largest_child = sorted_child[1]
-      if i < @triangle_2d.length-1
-        parent = @triangle_2d[i+1][@triangle_2d[i+1].index(largest_child)]
-      end 
+  #traverse down the tree following the largest child
+  def traverse
+    #set initial values
+    i = 0
+    @sum = @triangle_2d[0][0]
+    
+    #set initial parent node and children nodes
+    initial_parent = @triangle_2d[0][0]
+    initial_child_1 = @triangle_2d[i+1][0]
+    initial_child_2 = @triangle_2d[i+1][1]
+
+    #set initial sorted child node and initial largest child
+    sorted_child = [initial_child_1, initial_child_2].sort
+    initial_largest_child = sorted_child[1]
+
+    #iterate through the array
+    #need to start with 1 since an initial node was previously defined.
+    for i in 1...@triangle_2d.length
+      largest_child ||= initial_largest_child
+      @sum += largest_child
+
+      for j in 0...@triangle_2d[i].length
+
+        if i < @triangle_2d.length-1
+          child_1 = @triangle_2d[i+1][largest_child[i][j]]
+          child_2 = @triangle_2d[i+1][largest_child[i][j]+1]
+        end
+
+        sorted_child = [child_1, child_2].sort
+        largest_child = sorted_child[1]
+        if i < @triangle_2d.length-1
+          parent = @triangle_2d[i+1][@triangle_2d[i+1].index(largest_child)]
+        end 
+      end
     end
   end
 end
 
-
-
-create_2d_array
-convert_to_ints
-traverse
+pyramid = Pyramid.new(triangle_string)
+pyramid.create_2d_array
+pyramid.convert_to_ints
+pyramid.traverse
 
 puts "-----"
-puts "sum is #{@sum}"
+puts "sum is #{pyramid.sum}"
 
       
 
