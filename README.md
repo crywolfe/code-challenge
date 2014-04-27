@@ -14,5 +14,9 @@ After writing the code, I thought I should provide documentation other than comm
 ###JAVASCRIPT CODING CHALLENGE
 I also finished the first three javascript coding challenges.  When we talk, I can walk you through how I solved those problems.
 
+###REFACTORING TO DOS
+1.  I would like the traverse method to be shorter
+2.  I would like to create a menu to give the user the option the user to search for the minimum sum.
+
 ###FOLLOW UP
 I'm looking forward to our call on Tuesday.
