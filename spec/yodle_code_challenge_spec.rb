@@ -6,7 +6,7 @@ describe Pyramid do
     10 2 
     40 1 4 
     1 4 10 20 " }
-    let (:pyramid) { Pyramid.new(triangle) }
+  let (:pyramid) { Pyramid.new(triangle) }
 
   describe "#create_2d_array" do
     it "should create a 2d array from a string that mimics a pyramid" do
@@ -33,7 +33,6 @@ describe Pyramid do
         [1, 4, 10, 20]]
 
       expect(pyramid.convert_to_ints).to eq(triangle_array_int)
-
     end
   end
 
@@ -45,7 +44,6 @@ describe Pyramid do
       pyramid.traverse
 
       expect(pyramid.sum).to eq(59)
-
     end
   end
 end
