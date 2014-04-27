@@ -16,7 +16,7 @@ I also finished the first three javascript coding challenges.  When we talk, I c
 
 ###REFACTORING TO DOS
 1.  I would like the traverse method to be shorter
-2.  I would like to create a menu to give the user the option the user to search for the minimum sum.
+2.  I would like to create a menu to give the user the option to search for the minimum sum and implement it.
 
 ###FOLLOW UP
 I'm looking forward to our call on Tuesday.
