@@ -133,23 +133,19 @@ class Pyramid
     create_2d_array
     convert_to_ints
 
-    # set initial values
+    # set initial values of vert_pos and sum
     vert_pos = 0
     @sum = @tree[0][0]
     
-    # set initial parent node and children nodes
-    initial_parent = @tree[0][0]
+    # set initial children nodes
     initial_child_1 = @tree[1][0]
     initial_child_2 = @tree[1][1]
-
-    # set initial sorted child node and initial largest child
-    initial_largest_child = [initial_child_1, initial_child_2].max
 
     # iterate through the array
     # need to start with 1 since an initial node was previously defined.
     
     for vert_pos in 1...@tree.length
-      largest_child ||= initial_largest_child
+      largest_child ||= [initial_child_1, initial_child_2].max
       @sum += largest_child
 
       @tree[vert_pos].length.times do |horiz_pos|
@@ -159,7 +155,7 @@ class Pyramid
         end
 
         largest_child = [child_1, child_2].max
-
+        #ensure the parent never has a vertical position of the last row
         if vert_pos < @tree.length-1
           parent = @tree[vert_pos+1][@tree[vert_pos+1].index(largest_child)]
         end 
