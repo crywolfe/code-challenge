@@ -129,15 +129,16 @@ class Pyramid
 
   # traverse down the tree following the largest child
 
-def initial_setup
-  # set initial values of vert_pos and sum
-  vert_pos = 0
-  @sum = @tree[0][0]
+  def initial_setup
+    # set initial values of vert_pos and sum
+    vert_pos = 0
+    @sum = @tree[0][0]
+    
+    # set initial children nodes
+    @initial_child_1 = @tree[1][0]
+    @initial_child_2 = @tree[1][1]
+  end
   
-  # set initial children nodes
-  @initial_child_1 = @tree[1][0]
-  @initial_child_2 = @tree[1][1]
-end
   def traverse
     # set up traverse
     create_2d_array
