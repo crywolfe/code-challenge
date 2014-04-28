@@ -7,9 +7,9 @@ yodle_code_challenge
 
 I initially wrote the code without using classes or methods because it was short enough to do so.  However, in order to show you my abilities in writing code with proper classes and methods I refactored the code.
 
-###TESTING - RSPEC, SIMPLECOV, TRAVIS
+###TESTING - RSPEC, TRAVIS
 
-After writing the code, I thought I should provide documentation other than the short comments contained in the code.  What better way to document than to document with tests, so, I wrote three rspec tests. I also used simplecov to ensure all conditionals were tested.
+After writing the code, I thought I should provide documentation other than the short comments contained in the code.  What better way to document than to document with tests, so, I wrote three rspec tests.
 
 I used travis to make it more convenient for you so that you would not have to run rspec.
 
