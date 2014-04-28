@@ -128,23 +128,25 @@ class Pyramid
   end
 
   # traverse down the tree following the largest child
+
+def initial_setup
+  # set initial values of vert_pos and sum
+  vert_pos = 0
+  @sum = @tree[0][0]
+  
+  # set initial children nodes
+  @initial_child_1 = @tree[1][0]
+  @initial_child_2 = @tree[1][1]
+end
   def traverse
     # set up traverse
     create_2d_array
     convert_to_ints
+    initial_setup
 
-    # set initial values of vert_pos and sum
-    vert_pos = 0
-    @sum = @tree[0][0]
-    
-    # set initial children nodes
-    initial_child_1 = @tree[1][0]
-    initial_child_2 = @tree[1][1]
-
-    # iterate through the array
-    # need to start with 1 since an initial node was previously defined.
+    # Start with 1 since initial_setup was called.
     for vert_pos in 1...@tree.length
-      largest_child ||= [initial_child_1, initial_child_2].max
+      largest_child ||= [@initial_child_1, @initial_child_2].max
       @sum += largest_child
 
       @tree[vert_pos].length.times do |horiz_pos|
