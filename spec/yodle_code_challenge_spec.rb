@@ -41,6 +41,7 @@ describe Pyramid do
 
       pyramid.create_2d_array
       pyramid.convert_to_ints
+      pyramid.initial_setup
       pyramid.traverse
 
       expect(pyramid.sum).to eq(59)
