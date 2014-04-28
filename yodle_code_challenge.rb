@@ -1,3 +1,4 @@
+require 'rspec'
 orig_tree = File.read('triangle.txt')
 # create a pyramid style 2 dimensional array
 class Pyramid
@@ -25,7 +26,6 @@ class Pyramid
   end
 
   # traverse down the tree following the largest child
-
   def initial_setup
     # set initial values of vert_pos and sum
     vert_pos = 0
@@ -41,7 +41,7 @@ class Pyramid
     for vert_pos in 1...@tree.length
       @sum += largest_child
 
-      #set parent_horiz_pos
+      # set parent_horiz_pos
       parent_horiz_pos = @tree[vert_pos].index(largest_child)
       parent = largest_child
 
@@ -51,7 +51,7 @@ class Pyramid
       end
 
       largest_child = [child_1, child_2].max
-      #ensure the parent never has a vertical position of the last row
+      # ensure the parent never has a vertical position of the last row
       if vert_pos < @tree.length-1
         # parent = @tree[vert_pos+1][@tree[vert_pos+1].index(largest_child)]
         parent = largest_child
