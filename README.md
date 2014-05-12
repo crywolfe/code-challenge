@@ -5,7 +5,7 @@ yodle_code_challenge
 
 ###INITIAL COMMENTS
 
-I initially wrote the code without using classes or methods because it was short enough to do so.  However, in order to show you my abilities in writing code with proper classes and methods I refactored the code.
+I initially wrote the code without using classes or methods because it was short enough to do so.  However, I thought it best to refactor the code to provide more proper organization.
 
 ###TESTING - RSPEC, TRAVIS
 
