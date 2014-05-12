@@ -5,7 +5,7 @@ yodle_code_challenge
 
 ###INITIAL COMMENTS
 
-I initially wrote the code without using classes or methods.  However, I thought it best to refactor the code to provide more proper organization.
+I initially wrote the code a little differently.  However, I thought it best to refactor the code to provide more proper organization.
 
 ###TESTING - RSPEC, TRAVIS
 
