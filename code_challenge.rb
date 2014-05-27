@@ -1,4 +1,5 @@
 require 'rspec'
+
 orig_tree = File.read('data/triangle.txt')
 # create a pyramid style 2 dimensional array
 class Pyramid
