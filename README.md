@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/crywolfe/yodle-challenge.svg?branch=master)](https://travis-ci.org/crywolfe/yodle-challenge)
 
-yodle_code_challenge
+code_challenge
 ===============
 
 ###INITIAL COMMENTS
@@ -13,8 +13,3 @@ After writing the code, I thought I should provide documentation other than the 
 
 I used travis to make it more convenient for you so that you would not have to run rspec.
 
-###JAVASCRIPT CODING CHALLENGE
-I also finished all the JS coding challenges, including the bonus.  I included the code for the bonus in this repo.  It is called yodle_change.rb.  When we talk, I can walk you through how I solved all of the JS problems.
-
-###FOLLOW UP
-I'm looking forward to our call tomorrow.
