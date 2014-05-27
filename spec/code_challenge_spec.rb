@@ -1,5 +1,5 @@
 require "spec_helper"
-require_relative "../yodle_code_challenge"
+require_relative "../code_challenge"
 
 describe Pyramid do
   let(:tree) { "5 
